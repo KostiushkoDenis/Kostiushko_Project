@@ -1,3 +1,5 @@
+package test;
+
 import baseTest.BaseTest;
 import libs.Util;
 import org.junit.Test;
@@ -8,6 +10,7 @@ public class CreatePraiseTest extends BaseTest {
     @Test
     public void createPraise () {
         loginPage.loginWithLoginAndPassword(url,validLogin,validPassword)
+                .changeLocalizationOnEN()
                 .getMainMenu().goToAchievementsBadges()
                 .checkRedirectToBadgesPage(url)
                 .goToPraisePage()

@@ -1,4 +1,7 @@
+package test;
+
 import baseTest.BaseTest;
+import libs.Util;
 import org.junit.Test;
 
 
@@ -10,18 +13,19 @@ public class CreateFamilyMemberTest extends BaseTest {
 
     private String lastName = "Kostiushko";
     private String firstName = "Vlad";
-    private String phone = "+380937709051";
+
 
 
 
     @Test
     public void addFamilyMember() {
+        String lastName = Util.getDateAndTimeFormatted();
         loginPage.loginWithLoginAndPassword(url,validLogin,validPassword)
-                .getMainMenu().goToProfilePersonalData()
+                .changeLocalizationOnEN()
                 .openModalWindow(FAMILY)
                 .inputTextInToLastName(lastName)
                 .inputTextInToFirstNam(firstName)
-                .inputTextInToPhone(phone)
+                .inputTextInToPhone("+380937709051")
                 .inputTextInToEmail("mail")
                 .inputTextInToAddress("Adres1")
                 .inputTextInToRegistrationAddress("Adres2")
@@ -29,7 +33,7 @@ public class CreateFamilyMemberTest extends BaseTest {
                 .chooseTheTypeOfFamilyMember("father")
                 .chooseDateBirthday(year, month)
                 .clickSaveButton()
-                .checkFamilyMember(lastName, firstName)
+                .checkFamilyMember(lastName)
         ;
 
     }

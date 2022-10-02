@@ -1,3 +1,5 @@
+package test;
+
 import baseTest.BaseTest;
 import org.junit.Test;
 
